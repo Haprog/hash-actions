@@ -1,3 +1,4 @@
+/*! hash-actions v0.0.1 | Kari Söderholm | https://github.com/Haprog/hash-actions */
 /* eslint-env jquery */
 (function($){
 	var registeredHashes = [];
