@@ -1,0 +1,23 @@
+{
+  "name": "hash-actions",
+  "main": "hash-actions.js",
+  "homepage": "https://github.com/Haprog/hash-actions",
+  "authors": [
+    "Kari Söderholm <haprog@haprogszone.net>"
+  ],
+  "description": "A utility for working with the hashchange event and window.location.hash",
+  "keywords": [
+    "hashchange",
+    "hash",
+    "window.location.hash",
+    "utility"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
