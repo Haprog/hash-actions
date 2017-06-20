@@ -1,6 +1,7 @@
 {
   "name": "hash-actions",
   "main": "hash-actions.js",
+  "moduleType": "globals",
   "homepage": "https://github.com/Haprog/hash-actions",
   "authors": [
     "Kari Söderholm <haprog@haprogszone.net>"
