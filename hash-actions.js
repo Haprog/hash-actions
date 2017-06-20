@@ -1,16 +1,16 @@
 /*! hash-actions v0.0.1 | Kari Söderholm | https://github.com/Haprog/hash-actions */
-/* eslint-env jquery */
-(function($){
+/* eslint-env jquery no-es6 */
+(function ($) {
 	var registeredHashes = [];
 	var oldHash = window.location.hash;
 	$.hashActions = {
 		hideEmptyHashFromURL: false,
 
 		removeHashSymbol: function (url) {
-			return url.split("#")[0];
+			return url.split('#')[0];
 		},
 		setHash: function (hash) {
-			if (hash === "") {
+			if (hash === '') {
 				this.removeHashWithoutReload();
 			} else {
 				window.location.hash = hash;
@@ -27,15 +27,15 @@
 		},
 		removeHashWithoutReload: function (triggeredByHashChange) {
 			var loc = window.location;
-			if ("replaceState" in history) {
-				history.replaceState("", document.title, loc.pathname + loc.search);
+			if ('replaceState' in history) {
+				history.replaceState('', document.title, loc.pathname + loc.search);
 
-				if (oldHash !== "" && !triggeredByHashChange) {
-					this._onHashChange("");
+				if (oldHash !== '' && !triggeredByHashChange) {
+					this._onHashChange('');
 				}
-			} else if (loc.hash !== "") {
+			} else if (loc.hash !== '') {
 				// Fallback for old browsers
-				this.setHashWithoutScrolling("");
+				this.setHashWithoutScrolling('');
 			}
 		},
 		isCurrentHash: function (hash) {
@@ -63,14 +63,14 @@
 			}
 		},
 		triggerHashEnter: function (hash) {
-			$(document).trigger("hashactions:enter:" + hash);
+			$(document).trigger('hashactions:enter:' + hash);
 		},
 		triggerHashExit: function (hash) {
-			$(document).trigger("hashactions:exit:" + hash);
+			$(document).trigger('hashactions:exit:' + hash);
 		},
 		onHashEnter: function (hash, callback, triggerOnCurrent) {
 			this.registerHash(hash);
-			$(document).on("hashactions:enter:" + hash, callback);
+			$(document).on('hashactions:enter:' + hash, callback);
 
 			if (triggerOnCurrent && this.isCurrentHash(hash)) {
 				callback();
@@ -78,14 +78,14 @@
 		},
 		onHashExit: function (hash, callback) {
 			this.registerHash(hash);
-			$(document).on("hashactions:exit:" + hash, callback);
+			$(document).on('hashactions:exit:' + hash, callback);
 		},
 		// Shorthand for defining both onHashEnter and onHashExit
 		on: function (hash, o, triggerEnterOnCurrent) {
-			if (typeof o.exit === "function") {
+			if (typeof o.exit === 'function') {
 				this.onHashExit(hash, o.exit);
 			}
-			if (typeof o.enter === "function") {
+			if (typeof o.enter === 'function') {
 				this.onHashEnter(hash, o.enter, triggerEnterOnCurrent);
 			}
 		},
@@ -98,12 +98,12 @@
 			}
 			oldHash = hash;
 
-			if (hash === "" && this.hideEmptyHashFromURL) {
+			if (hash === '' && this.hideEmptyHashFromURL) {
 				this.removeHashWithoutReload(true);
 			}
 		}
 	};
-	$(window).on("hashchange", function () {
+	$(window).on('hashchange', function () {
 		$.hashActions._onHashChange(window.location.hash);
 	});
 })(jQuery);
