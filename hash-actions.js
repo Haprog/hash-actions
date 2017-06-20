@@ -1,9 +1,8 @@
-/*! hash-actions v0.0.1 | Kari Söderholm | https://github.com/Haprog/hash-actions */
-/* eslint-env jquery no-es6 */
-(function ($) {
+/*! hash-actions v0.0.2 | Kari Söderholm | https://github.com/Haprog/hash-actions */
+window.hashActions = (function () {
 	var registeredHashes = [];
 	var oldHash = window.location.hash;
-	$.hashActions = {
+	var hashActions = {
 		hideEmptyHashFromURL: false,
 
 		removeHashSymbol: function (url) {
@@ -42,7 +41,7 @@
 			return window.location.hash === hash;
 		},
 		isRegisteredHash: function (hash) {
-			return $.inArray(hash, registeredHashes) > -1;
+			return registeredHashes.indexOf(hash) > -1;
 		},
 		isCurrentRegisteredHash: function () {
 			return this.isRegisteredHash(window.location.hash);
@@ -57,20 +56,29 @@
 			}
 		},
 		unregisterHash: function (hash) {
-			var i = $.inArray(hash, registeredHashes);
+			var i = registeredHashes.indexOf(hash);
 			if (i > -1) {
 				registeredHashes.splice(i, 1);
 			}
 		},
+		_triggerCustomEvent: function (el, eventName, data) {
+			if (window.CustomEvent) {
+				var event = new CustomEvent(eventName, {detail: data});
+			} else {
+				var event = document.createEvent('CustomEvent');
+				event.initCustomEvent(eventName, true, true, data);
+			}
+			el.dispatchEvent(event);
+		},
 		triggerHashEnter: function (hash) {
-			$(document).trigger('hashactions:enter:' + hash);
+			this._triggerCustomEvent(document, 'hashactions:enter:' + hash);
 		},
 		triggerHashExit: function (hash) {
-			$(document).trigger('hashactions:exit:' + hash);
+			this._triggerCustomEvent(document, 'hashactions:exit:' + hash);
 		},
 		onHashEnter: function (hash, callback, triggerOnCurrent) {
 			this.registerHash(hash);
-			$(document).on('hashactions:enter:' + hash, callback);
+			document.addEventListener('hashactions:enter:' + hash, callback);
 
 			if (triggerOnCurrent && this.isCurrentHash(hash)) {
 				callback();
@@ -78,7 +86,7 @@
 		},
 		onHashExit: function (hash, callback) {
 			this.registerHash(hash);
-			$(document).on('hashactions:exit:' + hash, callback);
+			document.addEventListener('hashactions:exit:' + hash, callback);
 		},
 		// Shorthand for defining both onHashEnter and onHashExit
 		on: function (hash, o, triggerEnterOnCurrent) {
@@ -103,7 +111,8 @@
 			}
 		}
 	};
-	$(window).on('hashchange', function () {
-		$.hashActions._onHashChange(window.location.hash);
+	window.addEventListener('hashchange', function () {
+		hashActions._onHashChange(window.location.hash);
 	});
-})(jQuery);
+	return hashActions;
+})();
