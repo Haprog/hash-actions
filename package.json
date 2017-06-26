@@ -1,0 +1,37 @@
+{
+  "name": "hash-actions",
+  "version": "0.0.3",
+  "description": "A utility for working with the hashchange event and window.location.hash.",
+  "main": "lib/hash-actions.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Haprog/hash-actions.git"
+  },
+  "keywords": [
+    "hashchange",
+    "hash",
+    "window.location.hash",
+    "utility"
+  ],
+  "author": "Kari Söderholm <haprog@haprogszone.net>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Haprog/hash-actions/issues"
+  },
+  "homepage": "https://github.com/Haprog/hash-actions#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.1.0"
+  }
+}
