@@ -5,5 +5,10 @@
         "browsers": ["last 2 versions", "ie >= 11"]
       }
     }]
-  ]
+  ],
+  "env": {
+    "production": {
+      "presets": ["babili"]
+    }
+  }
 }
