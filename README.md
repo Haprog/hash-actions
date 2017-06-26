@@ -21,3 +21,11 @@ npm run lint
 ```
 npm run build
 ```
+
+### Check file sizes
+
+Print file sizes (source, minified, gzipped, minified gzipped etc.)
+
+```
+./print-file-sizes.sh
+```
