@@ -94,7 +94,7 @@ window.hashActions = (() => {
       document.addEventListener(`hashactions:enter:${hash}`, callback);
 
       if (triggerOnCurrent && this.isCurrentHash(hash)) {
-        callback();
+        this.triggerHashEnter(hash);
       }
     },
 
