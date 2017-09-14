@@ -82,11 +82,11 @@ window.hashActions = (() => {
     },
 
     triggerHashEnter(hash) {
-      this._triggerCustomEvent(document, `hashactions:enter:${hash}`);
+      this._triggerCustomEvent(document, `hashactions:enter:${hash}`, { hash });
     },
 
     triggerHashExit(hash) {
-      this._triggerCustomEvent(document, `hashactions:exit:${hash}`);
+      this._triggerCustomEvent(document, `hashactions:exit:${hash}`, { hash });
     },
 
     onHashEnter(hash, callback, triggerOnCurrent) {
