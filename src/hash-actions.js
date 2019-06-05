@@ -29,8 +29,8 @@ window.hashActions = (() => {
 
     removeHashWithoutReload(triggeredByHashChange) {
       const loc = window.location;
-      if ('replaceState' in history) {
-        history.replaceState('', document.title, loc.pathname + loc.search);
+      if ('replaceState' in window.history) {
+        window.history.replaceState('', document.title, loc.pathname + loc.search);
 
         if (oldHash !== '' && !triggeredByHashChange) {
           this._onHashChange('');
