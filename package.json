@@ -1,6 +1,6 @@
 {
   "name": "hash-actions",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A utility for working with the hashchange event and window.location.hash.",
   "main": "lib/hash-actions.js",
   "scripts": {
