@@ -19,6 +19,7 @@
       "exports": "always-multiline",
       "functions": "never"
     }],
-    "import/extensions": ["error", "always", {"ignorePackages": true}]
+    "import/extensions": ["error", "always", { "ignorePackages": true }],
+    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": false }]
   }
 }

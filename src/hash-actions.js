@@ -143,6 +143,13 @@ window.hashActions = (() => {
     },
 
     /**
+     * Unregisters all hashes.
+     */
+    _clearRegisteredHashes() {
+      registeredHashes.length = 0;
+    },
+
+    /**
      * Triggers a custom event on the given target.
      * @param {EventTarget} target The event target to dispatch the event on (e.g. an Element)
      * @param {string} eventName Name of the custom event to dispatch
