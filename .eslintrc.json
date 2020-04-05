@@ -10,6 +10,13 @@
   },
   "rules": {
     "linebreak-style": ["error", "unix"],
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never"
+    }]
   }
 }

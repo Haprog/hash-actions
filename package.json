@@ -10,6 +10,15 @@
     "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,cjs}": "eslint --fix",
+    "*.{js,cjs,css,md}": "prettier --write"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Haprog/hash-actions.git"
@@ -34,6 +43,9 @@
     "babel-preset-minify": "^0.5.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
+    "prettier": "2.0.2"
   }
 }
