@@ -2,7 +2,8 @@
   "root": true,
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
   },
   "extends": "airbnb-base",
   "parserOptions": {
@@ -17,6 +18,7 @@
       "imports": "always-multiline",
       "exports": "always-multiline",
       "functions": "never"
-    }]
+    }],
+    "import/extensions": ["error", "always", {"ignorePackages": true}]
   }
 }

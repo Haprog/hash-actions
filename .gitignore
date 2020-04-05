@@ -11,3 +11,6 @@
 
 ## bower
 /bower_components/
+
+## testing
+/coverage/
