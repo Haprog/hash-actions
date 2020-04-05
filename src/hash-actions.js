@@ -41,13 +41,13 @@ window.hashActions = (() => {
      * @param {string} hash The hash to set
      */
     setHashWithoutScrolling(hash) {
-      const scrollV = document.body.scrollTop;
-      const scrollH = document.body.scrollLeft;
+      const scrollV = document.documentElement.scrollTop;
+      const scrollH = document.documentElement.scrollLeft;
 
       window.location.hash = hash;
 
-      document.body.scrollTop = scrollV;
-      document.body.scrollLeft = scrollH;
+      document.documentElement.scrollTop = scrollV;
+      document.documentElement.scrollLeft = scrollH;
     },
 
     /**
