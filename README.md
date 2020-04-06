@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/Haprog/hash-actions/workflows/Node.js%20CI/badge.svg)
+
 # hash-actions
 
 A utility for working with the `hashchange` event and `window.location.hash`.
