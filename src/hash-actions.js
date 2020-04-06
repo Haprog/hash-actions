@@ -73,7 +73,7 @@ window.hashActions = (() => {
           this._onHashChange('');
         }
       } else if (loc.hash !== '') {
-        // Fallback for old browsers
+        // Fallback for old browsers (this can probably be removed, check browser support)
         this.setHashWithoutScrolling('');
       }
     },
@@ -160,6 +160,7 @@ window.hashActions = (() => {
       if (window.CustomEvent) {
         event = new CustomEvent(eventName, { detail: data });
       } else {
+        // IE11 support
         event = document.createEvent('CustomEvent');
         event.initCustomEvent(eventName, true, true, data);
       }

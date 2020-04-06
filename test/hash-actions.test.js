@@ -169,6 +169,20 @@ describe('hash-actions', () => {
       expect(ha.isRegisteredHash('#foo')).to.be.false;
     });
 
+    it('should not throw when trying to register a registered hash', () => {
+      expect(() => {
+        ha.registerHash('#foo');
+        ha.registerHash('#foo');
+      }).to.not.throw();
+    });
+
+    it('should not throw when trying to unregister a non-registered hash', () => {
+      expect(() => {
+        ha.unregisterHash('#foo');
+        ha.unregisterHash('#foo');
+      }).to.not.throw();
+    });
+
     it('should know if current hash is registered', () => {
       expect(ha.isCurrentRegisteredHash()).to.be.false;
       window.location.hash = '#bar';
@@ -200,6 +214,23 @@ describe('hash-actions', () => {
           await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
             await setTestHash('#sandman');
             expect(enterSpy).to.not.have.been.called;
+          });
+        });
+
+        it('should trigger enter event with registerHash() and triggerOnCurrent', async () => {
+          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+            await setTestHash('#sandman');
+            ha.registerHash('#sandman', true);
+            expect(enterSpy).to.have.been.calledOnce;
+          });
+        });
+
+        it('should trigger enter event once with registerHash() and triggerOnCurrent when registering more than once', async () => {
+          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+            await setTestHash('#sandman');
+            ha.registerHash('#sandman', true);
+            ha.registerHash('#sandman', true);
+            expect(enterSpy).to.have.been.calledOnce;
           });
         });
 
