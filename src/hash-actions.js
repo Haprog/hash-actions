@@ -1,4 +1,4 @@
-/*! hash-actions v0.0.4 | Kari Söderholm | https://github.com/Haprog/hash-actions */
+/*! hash-actions v0.1.0 | Kari Söderholm | https://github.com/Haprog/hash-actions */
 window.hashActions = (() => {
   const registeredHashes = [];
   let oldHash = window.location.hash;
