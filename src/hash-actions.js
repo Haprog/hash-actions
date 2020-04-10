@@ -3,6 +3,14 @@ window.hashActions = (() => {
   const registeredHashes = [];
   let oldHash = window.location.hash;
   const hashActions = {
+    /**
+     * When set to true, the hash symbol is automatically removed from the current URL whenever
+     * `window.location.hash` is set to empty.
+     *
+     * This is done in a `hashchange` event listener so this will have an effect not only when the
+     * hash is changed using hashActions, but also when any code sets `window.location.hash`.
+     * @type {boolean}
+     */
     hideEmptyHashFromURL: false,
 
     /**
@@ -217,13 +225,20 @@ window.hashActions = (() => {
     },
 
     /**
+     * Options object for the `on()` method to provide enter and exit listeners
+     * @typedef {object} OnListenersHash
+     * @property {function} enter The enter event listener
+     * @property {function} exit The exit event listener
+     */
+
+    /**
      * A shorthand for registering both enter and exit listeners for a hash.
      * @see onHashEnter
      * @see onHashExit
      *
      * @param {string} hash The hash for which to register event listeners
-     * @param {object} o An object which should have function properties `enter` and `exit` for
-     *                   defining the event listener callbacks
+     * @param {OnListenersHash} o An object which should have function properties `enter` and
+     *                            `exit` for defining the event listener callbacks
      * @param {boolean} triggerEnterOnCurrent If true and if the given hash is currently active,
      *                                        triggers the hash enter event immediately
      */
