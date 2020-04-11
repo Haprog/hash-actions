@@ -225,6 +225,10 @@ window.hashActions = (() => {
     /**
      * Register an enter listener for the given hash.
      * Whenever the given hash becomes the active hash, the given callback will be called.
+     *
+     * @example
+     * hashActions.onHashEnter('#contact', () => contactDialog.open(), true);
+     *
      * @param {string} hash The hash for which to register an enter event listener
      * @param {HashEventListener} callback The enter event listener
      * @param {boolean} triggerOnCurrent If true and if the given hash is currently active,
@@ -243,6 +247,10 @@ window.hashActions = (() => {
      * Register an exit listener for the given hash.
      * Whenever the currently active hash is changed from the given hash to something else, the
      * given callback will be called.
+     *
+     * @example
+     * hashActions.onHashExit('#contact', () => contactDialog.close());
+     *
      * @param {string} hash The hash for which to register an exit event listener
      * @param {HashEventListener} callback The exit event listener
      */
@@ -260,6 +268,13 @@ window.hashActions = (() => {
 
     /**
      * A shorthand for registering both enter and exit listeners for a hash.
+     *
+     * @example
+     * hashActions.on('#contact', {
+     *   enter: () => contactDialog.open(),
+     *   exit: () => contactDialog.close()
+     * }, true);
+     *
      * @see hashActions.onHashEnter
      * @see hashActions.onHashExit
      *

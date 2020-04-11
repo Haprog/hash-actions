@@ -4,7 +4,14 @@
   },
   "opts": {
     "destination": "./docs/out/",
-    "readme": "./README.md"
+    "readme": "./README.md",
+    "template": "./node_modules/minami"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": true,
+    "useLongnameInNav": false,
+    "showInheritedInNav": true
   },
   "plugins": ["plugins/markdown"],
   "markdown": {
