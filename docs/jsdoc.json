@@ -1,0 +1,13 @@
+{
+  "source": {
+    "include": ["./src/"]
+  },
+  "opts": {
+    "destination": "./docs/out/",
+    "readme": "./README.md"
+  },
+  "plugins": ["plugins/markdown"],
+  "markdown": {
+    "idInHeadings": true
+  }
+}

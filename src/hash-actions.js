@@ -1,7 +1,26 @@
 /*! hash-actions v0.1.0 | Kari Söderholm | https://github.com/Haprog/hash-actions */
 window.hashActions = (() => {
+  /**
+   * @type {string[]}
+   * @memberof hashActions
+   * @inner
+   * @private
+   */
   const registeredHashes = [];
+
+  /**
+   * @type {string[]}
+   * @memberof hashActions
+   * @inner
+   * @private
+   */
   let oldHash = window.location.hash;
+
+  /**
+   * `window.hashActions`
+   * @global
+   * @namespace
+   */
   const hashActions = {
     /**
      * When set to true, the hash symbol is automatically removed from the current URL whenever
@@ -26,9 +45,9 @@ window.hashActions = (() => {
      * Sets the given hash as the currently active hash.
      *
      * Basically this just sets `window.location.hash` unless the given hash is an empty string,
-     * then `removeHashWithoutReload()` will be called.
+     * then {@link hashActions.removeHashWithoutReload} will be called.
      *
-     * @see removeHashWithoutReload
+     * @see hashActions.removeHashWithoutReload
      *
      * @param {string} hash The hash to set
      */
@@ -152,6 +171,7 @@ window.hashActions = (() => {
 
     /**
      * Unregisters all hashes.
+     * @private
      */
     _clearRegisteredHashes() {
       registeredHashes.length = 0;
@@ -159,11 +179,13 @@ window.hashActions = (() => {
 
     /**
      * Triggers a custom event on the given target.
+     * @private
      * @param {EventTarget} target The event target to dispatch the event on (e.g. an Element)
      * @param {string} eventName Name of the custom event to dispatch
      * @param {object} data The data to include as `event.detail`
      */
     _triggerCustomEvent(target, eventName, data) {
+      /** @type {CustomEvent} */
       let event;
       if (window.CustomEvent) {
         event = new CustomEvent(eventName, { detail: data });
@@ -196,10 +218,15 @@ window.hashActions = (() => {
     },
 
     /**
+     * @callback HashEventListener
+     * @param {CustomEvent} event
+     */
+
+    /**
      * Register an enter listener for the given hash.
      * Whenever the given hash becomes the active hash, the given callback will be called.
      * @param {string} hash The hash for which to register an enter event listener
-     * @param {function} callback The enter event listener
+     * @param {HashEventListener} callback The enter event listener
      * @param {boolean} triggerOnCurrent If true and if the given hash is currently active,
      *                                   triggers the hash enter event immediately
      */
@@ -217,7 +244,7 @@ window.hashActions = (() => {
      * Whenever the currently active hash is changed from the given hash to something else, the
      * given callback will be called.
      * @param {string} hash The hash for which to register an exit event listener
-     * @param {function} callback The exit event listener
+     * @param {HashEventListener} callback The exit event listener
      */
     onHashExit(hash, callback) {
       this.registerHash(hash);
@@ -227,14 +254,14 @@ window.hashActions = (() => {
     /**
      * Options object for the `on()` method to provide enter and exit listeners
      * @typedef {object} OnListenersHash
-     * @property {function} enter The enter event listener
-     * @property {function} exit The exit event listener
+     * @property {HashEventListener} enter The enter event listener
+     * @property {HashEventListener} exit The exit event listener
      */
 
     /**
      * A shorthand for registering both enter and exit listeners for a hash.
-     * @see onHashEnter
-     * @see onHashExit
+     * @see hashActions.onHashEnter
+     * @see hashActions.onHashExit
      *
      * @param {string} hash The hash for which to register event listeners
      * @param {OnListenersHash} o An object which should have function properties `enter` and
@@ -258,6 +285,7 @@ window.hashActions = (() => {
      * If `hideEmptyHashFromURL` has been set to true and the new hash is an empty string, then
      * `removeHashWithoutReload()` will be called.
      *
+     * @private
      * @param {string} hash The new hash that has just became the active hash
      */
     _onHashChange(hash) {

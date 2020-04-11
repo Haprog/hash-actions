@@ -7,6 +7,8 @@
     "build": "npm run build-nomin && npm run build-min",
     "build-nomin": "babel src/hash-actions.js -o lib/hash-actions.js -s",
     "build-min": "BABEL_ENV=production babel src/hash-actions.js -o lib/hash-actions.min.js",
+    "build-docs": "jsdoc -c ./docs/jsdoc.json",
+    "docs": "npm run build-docs && npx http-server -c-1 ./docs/out",
     "lint": "eslint src test",
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false"
@@ -49,9 +51,11 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "husky": "^4.2.3",
+    "jsdoc": "~3.6.4",
     "lint-staged": "^10.1.1",
     "lit-html": "^1.2.1",
     "prettier": "2.0.2",
     "sinon": "^9.0.1"
   }
+
 }

@@ -18,10 +18,28 @@ npm install
 npm run lint
 ```
 
-### Build
+### Build library
+
+Builds the library from sources at `./src/` into `./lib/`.
 
 ```
 npm run build
+```
+
+### Build docs
+
+Generate documentation with `jsdoc` into `./docs/out`.
+
+```
+npm run build-docs
+```
+
+### Run docs
+
+Generate and run docs. This will start an `http-server` which will serve the docs from `./docs/out` at [http://localhost:8080](http://localhost:8080).
+
+```
+npm run docs
 ```
 
 ### Check file sizes
