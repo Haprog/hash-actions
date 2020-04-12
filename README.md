@@ -42,6 +42,22 @@ Generate and run docs. This will start an `http-server` which will serve the doc
 npm run docs
 ```
 
+### Run tests
+
+Runs tests with headless Chrome.
+
+```
+npm run test
+```
+
+### Run/debug tests manually
+
+Runs tests with headless Chrome and leaves the server running so you can manually run the tests in any browser by navigating to http://localhost:9876/debug.html
+
+```
+npm run test:watch
+```
+
 ### Check file sizes
 
 Print file sizes (source, minified, gzipped, minified gzipped etc.)
