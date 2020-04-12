@@ -358,6 +358,18 @@ describe('hash-actions', () => {
             expect(callbackSpy).to.have.been.calledOnce;
           });
         });
+
+        it('should trigger exit event once with removeHashWithoutReload()', async () => {
+          await withDocEventSpy('hashactions:exit:#sandman', async exitSpy => {
+            await setTestHash('#sandman');
+            ha.registerHash('#sandman');
+
+            ha.removeHashWithoutReload();
+            expect(exitSpy).to.have.been.calledOnce;
+            ha.removeHashWithoutReload();
+            expect(exitSpy).to.have.been.calledOnce;
+          });
+        });
       });
 
       describe('on() with enter and exit listeners', () => {
