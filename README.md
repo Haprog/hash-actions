@@ -47,7 +47,7 @@ npm run docs
 Runs tests with headless Chrome.
 
 ```
-npm run test
+npm test
 ```
 
 ### Run/debug tests manually
