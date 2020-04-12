@@ -9,6 +9,18 @@ window.hashActions = (() => {
   const registeredHashes = [];
 
   /**
+   * Used for checking what was the previously active hash (for triggering exit events).
+   * This is read and updated in {@link hashActions._onHashChange}.
+   *
+   * The previous hash could also be read from
+   * [`HashChangeEvent.oldURL`](https://developer.mozilla.org/en-US/docs/Web/API/HashChangeEvent/oldURL)
+   * but that's not supported on IE11 (and should check support on previous Safari versions). This
+   * can probably be dropped in the future when browser support for `HashChangeEvent.oldURL` is
+   * good enough.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/HashChangeEvent/oldURL
+   * @see https://caniuse.com/#feat=mdn-api_hashchangeevent_oldurl
+   *
    * @type {string[]}
    * @memberof hashActions
    * @inner
