@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run build-nomin && npm run build-min",
     "build-nomin": "babel src/hash-actions.js -o lib/hash-actions.js -s",
-    "build-min": "BABEL_ENV=production babel src/hash-actions.js -o lib/hash-actions.min.js",
+    "build-min": "cross-env BABEL_ENV=production babel src/hash-actions.js -o lib/hash-actions.min.js",
     "build-docs": "jsdoc -c ./docs/jsdoc.json",
     "docs": "npm run build-docs && npx http-server -c-1 ./docs/out",
     "lint": "eslint src test",
@@ -38,14 +38,14 @@
     "url": "https://github.com/Haprog/hash-actions/issues"
   },
   "homepage": "https://github.com/Haprog/hash-actions#readme",
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.14.5",
     "@open-wc/testing": "^2.0.0",
-    "@open-wc/testing-karma": "^3.0.0",
+    "@open-wc/testing-karma": "^4.0.2",
     "babel-preset-minify": "^0.5.1",
+    "cross-env": "^7.0.3",
     "deepmerge": "^3.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
