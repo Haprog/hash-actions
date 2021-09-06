@@ -40,7 +40,7 @@
   "homepage": "https://github.com/Haprog/hash-actions#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.0",
     "@open-wc/testing": "^2.0.0",
     "@open-wc/testing-karma": "^4.0.2",
