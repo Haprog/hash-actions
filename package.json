@@ -10,6 +10,7 @@
     "build-docs": "jsdoc -c ./docs/jsdoc.json",
     "docs": "npm run build-docs && npx http-server -c-1 ./docs/out",
     "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix && prettier --write --loglevel=warn .",
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false",
     "prepare": "husky install"
