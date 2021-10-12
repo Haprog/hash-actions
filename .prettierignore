@@ -1,1 +1,11 @@
+## testing
+/coverage/
+
+## generated docs
+/docs/out/
+
+## built lib
 /lib/
+
+bower.json
+package-lock.json
