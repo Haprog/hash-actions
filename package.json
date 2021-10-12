@@ -9,7 +9,7 @@
     "build-min": "cross-env BABEL_ENV=production babel src/hash-actions.js -o lib/hash-actions.min.js",
     "build-docs": "jsdoc -c ./docs/jsdoc.json",
     "docs": "npm run build-docs && npx http-server -c-1 ./docs/out",
-    "lint": "eslint src test",
+    "lint": "eslint src test && prettier --check --loglevel=warn .",
     "lint:fix": "eslint src test --fix && prettier --write --loglevel=warn .",
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false",

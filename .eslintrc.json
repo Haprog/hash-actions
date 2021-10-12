@@ -12,14 +12,17 @@
   "rules": {
     "linebreak-style": ["error", "unix"],
     "no-underscore-dangle": "off",
-    "comma-dangle": ["error", {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "imports": "always-multiline",
-      "exports": "always-multiline",
-      "functions": "never"
-    }],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ],
     "import/extensions": ["error", "always", { "ignorePackages": true }],
-    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": false }]
+    "implicit-arrow-linebreak": ["error", "below"]
   }
 }
