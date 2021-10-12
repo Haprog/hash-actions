@@ -5,14 +5,15 @@ import '../src/hash-actions.js';
 
 const ha = window.hashActions;
 
-const setTestHash = hash => new Promise(resolve => {
-  const listener = () => {
-    resolve();
-    window.removeEventListener('hashchange', listener);
-  };
-  window.addEventListener('hashchange', listener);
-  window.location.hash = hash;
-});
+const setTestHash = (hash) =>
+  new Promise((resolve) => {
+    const listener = () => {
+      resolve();
+      window.removeEventListener('hashchange', listener);
+    };
+    window.addEventListener('hashchange', listener);
+    window.location.hash = hash;
+  });
 
 describe('hash-actions', () => {
   afterEach(() => {
@@ -34,7 +35,7 @@ describe('hash-actions', () => {
         { url: '/#bar', expected: '/' },
         { url: '#bar', expected: '' },
       ];
-      testCases.forEach(o => {
+      testCases.forEach((o) => {
         const result = ha.removeHashSymbol(o.url);
         expect(result).to.equal(o.expected);
       });
@@ -211,14 +212,14 @@ describe('hash-actions', () => {
 
       describe('hashactions:enter:*', () => {
         it('should not trigger enter event for non-registered hash', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', async (enterSpy) => {
             await setTestHash('#sandman');
             expect(enterSpy).to.not.have.been.called;
           });
         });
 
         it('should trigger enter event with registerHash() and triggerOnCurrent', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', async (enterSpy) => {
             await setTestHash('#sandman');
             ha.registerHash('#sandman', true);
             expect(enterSpy).to.have.been.calledOnce;
@@ -226,7 +227,7 @@ describe('hash-actions', () => {
         });
 
         it('should trigger enter event once with registerHash() and triggerOnCurrent when registering more than once', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', async (enterSpy) => {
             await setTestHash('#sandman');
             ha.registerHash('#sandman', true);
             ha.registerHash('#sandman', true);
@@ -235,14 +236,14 @@ describe('hash-actions', () => {
         });
 
         it('should trigger enter event with triggerHashEnter()', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', (enterSpy) => {
             ha.triggerHashEnter('#sandman');
             expect(enterSpy).to.have.been.calledOnce;
           });
         });
 
         it('should trigger enter event with onHashEnter()', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', async (enterSpy) => {
             const callbackSpy = sinon.spy();
             ha.onHashEnter('#sandman', callbackSpy);
 
@@ -257,7 +258,7 @@ describe('hash-actions', () => {
         });
 
         it('should not trigger enter event with onHashEnter() and triggerOnCurrent', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', (enterSpy) => {
             const callbackSpy = sinon.spy();
             ha.onHashEnter('#sandman', callbackSpy, true);
 
@@ -267,7 +268,7 @@ describe('hash-actions', () => {
         });
 
         it('should trigger enter event with onHashEnter() and triggerOnCurrent', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', async (enterSpy) => {
             const callbackSpy = sinon.spy();
             await setTestHash('#sandman');
             ha.onHashEnter('#sandman', callbackSpy, true);
@@ -278,7 +279,7 @@ describe('hash-actions', () => {
         });
 
         it('should trigger enter event with on()', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', async (enterSpy) => {
             const callbackSpy = sinon.spy();
             ha.on('#sandman', { enter: callbackSpy });
 
@@ -292,7 +293,7 @@ describe('hash-actions', () => {
         });
 
         it('should not trigger enter event with on() and triggerEnterOnCurrent', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', (enterSpy) => {
             const callbackSpy = sinon.spy();
             ha.on('#sandman', { enter: callbackSpy }, true);
 
@@ -302,7 +303,7 @@ describe('hash-actions', () => {
         });
 
         it('should trigger enter event with on() and triggerEnterOnCurrent', async () => {
-          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', async (enterSpy) => {
             const callbackSpy = sinon.spy();
             await setTestHash('#sandman');
             ha.on('#sandman', { enter: callbackSpy }, true);
@@ -315,7 +316,7 @@ describe('hash-actions', () => {
 
       describe('hashactions:exit:*', () => {
         it('should not trigger exit event for non-registered hash', async () => {
-          await withDocEventSpy('hashactions:exit:#sandman', async exitSpy => {
+          await withDocEventSpy('hashactions:exit:#sandman', async (exitSpy) => {
             await setTestHash('#sandman');
             await setTestHash('');
             expect(exitSpy).to.not.have.been.called;
@@ -323,14 +324,14 @@ describe('hash-actions', () => {
         });
 
         it('should trigger exit event with triggerHashExit()', async () => {
-          await withDocEventSpy('hashactions:exit:#sandman', exitSpy => {
+          await withDocEventSpy('hashactions:exit:#sandman', (exitSpy) => {
             ha.triggerHashExit('#sandman');
             expect(exitSpy).to.have.been.calledOnce;
           });
         });
 
         it('should trigger exit event with onHashExit()', async () => {
-          await withDocEventSpy('hashactions:exit:#sandman', async exitSpy => {
+          await withDocEventSpy('hashactions:exit:#sandman', async (exitSpy) => {
             const callbackSpy = sinon.spy();
             ha.onHashExit('#sandman', callbackSpy);
 
@@ -345,7 +346,7 @@ describe('hash-actions', () => {
         });
 
         it('should trigger exit event with on()', async () => {
-          await withDocEventSpy('hashactions:exit:#sandman', async exitSpy => {
+          await withDocEventSpy('hashactions:exit:#sandman', async (exitSpy) => {
             const callbackSpy = sinon.spy();
             ha.on('#sandman', { exit: callbackSpy });
 
@@ -360,7 +361,7 @@ describe('hash-actions', () => {
         });
 
         it('should trigger exit event once with removeHashWithoutReload()', async () => {
-          await withDocEventSpy('hashactions:exit:#sandman', async exitSpy => {
+          await withDocEventSpy('hashactions:exit:#sandman', async (exitSpy) => {
             await setTestHash('#sandman');
             ha.registerHash('#sandman');
 
@@ -380,14 +381,14 @@ describe('hash-actions', () => {
             enter: enterCallbackSpy,
             exit: exitCallbackSpy,
           });
-          await withDocEventSpy('hashactions:enter:#sandman', async enterSpy => {
+          await withDocEventSpy('hashactions:enter:#sandman', async (enterSpy) => {
             expect(enterSpy).to.not.have.been.called;
             expect(enterCallbackSpy).to.not.have.been.called;
             await setTestHash('#sandman');
             expect(enterSpy).to.have.been.calledOnce;
             expect(enterCallbackSpy).to.have.been.calledOnce;
           });
-          await withDocEventSpy('hashactions:exit:#sandman', async exitSpy => {
+          await withDocEventSpy('hashactions:exit:#sandman', async (exitSpy) => {
             expect(exitSpy).to.not.have.been.called;
             expect(exitCallbackSpy).to.not.have.been.called;
             await setTestHash('');
