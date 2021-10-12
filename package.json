@@ -11,12 +11,8 @@
     "docs": "npm run build-docs && npx http-server -c-1 ./docs/out",
     "lint": "eslint src test",
     "test": "karma start --coverage",
-    "test:watch": "karma start --auto-watch=true --single-run=false"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "test:watch": "karma start --auto-watch=true --single-run=false",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,cjs}": "eslint --fix",
