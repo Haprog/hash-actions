@@ -49,7 +49,7 @@
     "eslint-plugin-import": "^2.24.1",
     "husky": "^7.0.2",
     "jsdoc": "~3.6.4",
-    "lint-staged": "^11.2.3",
+    "lint-staged": "^11.2.4",
     "lit-html": "^2.0.1",
     "minami": "^1.2.3",
     "prettier": "^2.4.1",
