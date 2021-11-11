@@ -36,22 +36,22 @@
   },
   "homepage": "https://github.com/Haprog/hash-actions#readme",
   "devDependencies": {
-    "@babel/cli": "^7.15.7",
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "@open-wc/testing": "^2.5.33",
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@open-wc/testing": "^3.0.3",
     "@open-wc/testing-karma": "^4.0.9",
     "babel-preset-minify": "^0.5.1",
     "cross-env": "^7.0.3",
     "deepmerge": "^4.2.2",
-    "eslint": "^8.0.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.24.1",
-    "husky": "^7.0.2",
-    "jsdoc": "~3.6.4",
-    "lint-staged": "^11.2.3",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "husky": "^7.0.4",
+    "jsdoc": "~3.6.7",
+    "lint-staged": "^11.2.6",
     "minami": "^1.2.3",
     "prettier": "^2.4.1",
-    "sinon": "^11.1.2"
+    "sinon": "^12.0.1"
   }
 }
