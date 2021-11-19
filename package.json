@@ -1,7 +1,17 @@
 {
   "name": "hash-actions",
-  "version": "0.1.0",
   "description": "A utility for working with the hashchange event and window.location.hash.",
+  "license": "Apache-2.0",
+  "author": "Kari Söderholm <haprog@haprogszone.net>",
+  "homepage": "https://github.com/Haprog/hash-actions#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Haprog/hash-actions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Haprog/hash-actions/issues"
+  },
+  "version": "0.1.0",
   "main": "./lib/hash-actions.min.js",
   "exports": {
     ".": "./lib/hash-actions.min.js",
@@ -16,38 +26,17 @@
     "docs": "npm run build-docs && npx http-server -c-1 ./docs/out",
     "lint": "eslint src test && prettier --check --loglevel=warn .",
     "lint:fix": "eslint src test --fix && prettier --write --loglevel=warn .",
-    "test": "karma start --coverage",
-    "test:watch": "karma start --auto-watch=true --single-run=false",
+    "test": "wtr --coverage",
+    "test:watch": "wtr --watch",
     "prepare": "husky install",
     "prepack": "npm run build"
   },
-  "lint-staged": {
-    "*.{js,cjs}": "eslint --fix",
-    "*.{js,cjs,css,md}": "prettier --write"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Haprog/hash-actions.git"
-  },
-  "keywords": [
-    "hashchange",
-    "hash",
-    "window.location.hash",
-    "utility"
-  ],
-  "author": "Kari Söderholm <haprog@haprogszone.net>",
-  "funding": "https://paypal.me/haprog",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/Haprog/hash-actions/issues"
-  },
-  "homepage": "https://github.com/Haprog/hash-actions#readme",
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
-    "@open-wc/testing": "^3.0.3",
-    "@open-wc/testing-karma": "^4.0.9",
+    "@open-wc/testing": "next",
+    "@web/test-runner": "next",
     "babel-preset-minify": "^0.5.1",
     "cross-env": "^7.0.3",
     "deepmerge": "^4.2.2",
@@ -60,5 +49,16 @@
     "minami": "^1.2.3",
     "prettier": "^2.4.1",
     "sinon": "^12.0.1"
-  }
+  },
+  "keywords": [
+    "hashchange",
+    "hash",
+    "window.location.hash",
+    "utility"
+  ],
+  "lint-staged": {
+    "*.{js,cjs}": "eslint --fix",
+    "*.{js,cjs,css,md}": "prettier --write"
+  },
+  "funding": "https://paypal.me/haprog"
 }

@@ -1,5 +1,5 @@
 import { expect } from '@open-wc/testing';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import sinon from 'sinon';
 
 import '../src/hash-actions.js';
 

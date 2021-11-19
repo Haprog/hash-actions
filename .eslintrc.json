@@ -24,5 +24,8 @@
     ],
     "import/extensions": ["error", "always", { "ignorePackages": true }],
     "implicit-arrow-linebreak": ["error", "below"]
-  }
+  },
+  "ignorePatterns": [
+    "web-test-runner.config.mjs"
+  ]
 }
