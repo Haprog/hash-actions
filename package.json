@@ -57,8 +57,8 @@
     "utility"
   ],
   "lint-staged": {
-    "*.{js,cjs}": "eslint --fix",
-    "*.{js,cjs,css,md}": "prettier --write"
+    "*.{js,cjs,mjs}": "eslint --fix",
+    "*.{js,cjs,mjs,json,css,md}": "prettier --write"
   },
   "funding": "https://paypal.me/haprog"
 }
