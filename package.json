@@ -34,7 +34,7 @@
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-env": "^7.16.5",
     "@open-wc/testing": "next",
     "@web/test-runner": "next",
     "babel-preset-minify": "^0.5.1",
